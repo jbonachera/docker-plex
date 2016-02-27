@@ -8,7 +8,7 @@ VOLUME /srv/plex/config
 RUN dnf install -y curl
 
 # Download and install Plex (non plexpass). URL is "hard coded" to allow versionning. If you have a better idea, feel free to contribute.
-ENV URL https://downloads.plex.tv/plex-media-server/0.9.15.2.1663-7efd046/plexmediaserver-0.9.15.2.1663-7efd046.x86_64.rpm
+ENV URL https://downloads.plex.tv/plex-media-server/0.9.15.6.1714-7be11e1/plexmediaserver-0.9.15.6.1714-7be11e1.x86_64.rpm
 RUN curl -sL $URL  -o plexmediaserver.rpm && \
     dnf install -y ./plexmediaserver.rpm && \
     rm -f plexmediaserver.rpm
