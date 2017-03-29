@@ -1,4 +1,4 @@
-FROM fedora:23
+FROM fedora:25
 RUN useradd --system --uid 797 -M --shell /usr/sbin/nologin plex
 RUN mkdir -p /srv/plex/config
 RUN chown plex:plex /srv/plex/config
@@ -8,7 +8,7 @@ VOLUME /srv/plex/config
 RUN dnf install -y curl
 
 # Download and install Plex (non plexpass). URL is "hard coded" to allow versionning. If you have a better idea, feel free to contribute.
-ENV URL https://downloads.plex.tv/plex-media-server/0.9.16.4.1911-ee6e505/plexmediaserver-0.9.16.4.1911-ee6e505.x86_64.rpm
+ENV URL https://plex.tv/downloads/latest/1?channel=16&build=linux-ubuntu-x86_64&distro=redhat&X-Plex-Token=kjpKZ5fryZqzWD7kKQ2x
 RUN curl -sL $URL  -o plexmediaserver.rpm && \
     dnf install -y ./plexmediaserver.rpm && \
     rm -f plexmediaserver.rpm
